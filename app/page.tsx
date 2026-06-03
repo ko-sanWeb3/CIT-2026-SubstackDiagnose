@@ -16,6 +16,37 @@ export default function Home() {
         </h1>
       </div>
 
+      {/* Substack説明カード */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-orange-200 text-left w-full space-y-3">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-2xl">📬</span>
+          <h2 className="text-xl font-bold text-orange-600">Substackとは？</h2>
+        </div>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Substackは、<span className="font-semibold text-gray-800">メールで届くニュースレター</span>を無料で作れるサービスです。
+        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          ブログのように文章を書くと、登録してくれた人のメールボックスに届きます。SNSのように「バズらせる」必要はありません。
+        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          難しい設定は不要。スマホでもパソコンでも使えます。
+        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          公開範囲は自分で決められるので、まずは<span className="font-semibold text-gray-800">非公開の下書き</span>から始めることもできます。
+        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          アカウント作成は<span className="font-semibold text-gray-800">無料</span>。基本的な機能はずっと無料で使えます。
+        </p>
+        <a
+          href="https://substack.com/sign-up"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mt-1 text-lg text-orange-500 hover:text-orange-600 font-medium underline underline-offset-4 transition-colors"
+        >
+          → Substackのアカウントを作る（無料）
+        </a>
+      </div>
+
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-amber-100 text-left space-y-3 w-full">
         <p className="text-xl text-gray-700 leading-relaxed">
           「難しそう」「何を書けばいいかわからない」

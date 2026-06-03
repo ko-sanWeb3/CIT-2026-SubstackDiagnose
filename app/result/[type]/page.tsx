@@ -112,6 +112,14 @@ export default function ResultPage({
       </div>
 
       <div className="flex flex-col gap-3">
+        <a
+          href="https://substack.com/sign-up"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full text-center text-white text-2xl font-bold py-6 rounded-2xl transition-colors shadow-md ${btnClass}`}
+        >
+          Substackに登録する（無料）→
+        </a>
         <Link
           href="/"
           onClick={handleRetry}
