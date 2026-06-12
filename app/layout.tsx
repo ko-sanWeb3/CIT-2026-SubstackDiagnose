@@ -29,6 +29,11 @@ export default function RootLayout({
         <div className="max-w-2xl mx-auto px-4 py-8">
           {children}
         </div>
+        <footer className="max-w-2xl mx-auto px-4 pb-8 text-center">
+          <p className="text-sm text-gray-400">
+            60代からのSubstackはじめ方診断 &middot; V3
+          </p>
+        </footer>
       </body>
     </html>
   );

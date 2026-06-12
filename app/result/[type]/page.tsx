@@ -10,6 +10,8 @@ const colorMap: Record<string, string> = {
   blue: "bg-blue-100 border-blue-300 text-blue-700",
   purple: "bg-purple-100 border-purple-300 text-purple-700",
   rose: "bg-rose-100 border-rose-300 text-rose-700",
+  teal: "bg-teal-100 border-teal-300 text-teal-700",
+  indigo: "bg-indigo-100 border-indigo-300 text-indigo-700",
 };
 
 const btnColorMap: Record<string, string> = {
@@ -18,6 +20,8 @@ const btnColorMap: Record<string, string> = {
   blue: "bg-blue-500 hover:bg-blue-600",
   purple: "bg-purple-500 hover:bg-purple-600",
   rose: "bg-rose-500 hover:bg-rose-600",
+  teal: "bg-teal-500 hover:bg-teal-600",
+  indigo: "bg-indigo-500 hover:bg-indigo-600",
 };
 
 export default function ResultPage({
@@ -86,29 +90,30 @@ export default function ResultPage({
       </div>
 
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
-        <h2 className="text-xl font-bold text-gray-800">まず見るべき説明資料</h2>
-        <p className="text-lg text-gray-500">全部見なくていい。必要なものだけ選んで見てください。</p>
-        <ul className="space-y-3">
-          {typeData.resources.map((resource, i) => {
-            const isPdf = resource.type === "pdf";
-            return (
-              <li key={i}>
-                <a
-                  href={resource.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl border border-gray-200 transition-colors"
-                >
-                  <span className="text-2xl">{isPdf ? "📄" : "▶️"}</span>
-                  <div className="flex flex-col">
-                    <span className="text-lg text-gray-700 font-medium">{resource.title}</span>
-                    <span className="text-sm text-gray-400">{isPdf ? "スライド資料（PDF）" : "動画"}</span>
-                  </div>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <h2 className="text-xl font-bold text-gray-800">まず見るべき資料</h2>
+        {/* PDFは後日 public/docs/guide-{resultId}.pdf に配置する。
+            未配置でもビルド・デプロイは静的リンクのため通る。 */}
+        <div className="flex flex-col gap-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
+          <div className="flex items-start gap-3">
+            <span className="text-3xl flex-shrink-0">📄</span>
+            <div className="flex flex-col">
+              <span className="text-xl text-gray-800 font-bold leading-relaxed">
+                {typeData.guideTitle}
+              </span>
+              <span className="text-lg text-gray-500 mt-1">
+                5枚のスライドであなたの始め方が分かります
+              </span>
+            </div>
+          </div>
+          <a
+            href={`/docs/guide-${typeData.resultId}.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-full text-center text-white text-xl font-bold py-4 rounded-xl transition-colors shadow-sm ${btnClass}`}
+          >
+            資料を見る（PDF）→
+          </a>
+        </div>
       </div>
 
       <div className="flex flex-col gap-3">
